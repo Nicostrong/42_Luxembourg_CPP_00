@@ -6,15 +6,15 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 08:31:49 by nfordoxc          #+#    #+#             */
-/*   Updated: 2024/11/28 13:58:32 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2024/12/02 13:05:44 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string.h>
-#include "PhoneBook.hpp"
+#include "Contact_class.hpp"
 
-int	ft_print_menu(void)
+/*int	ft_print_menu(void)
 {
 	std::string	buff;
 	
@@ -30,13 +30,21 @@ int	ft_print_menu(void)
 	else if (buff == SEARCH)
 		return (2);
 	return (0);
-}
+}*/
 
 int main(void)
 {
-	int		choice;
-	
-	std::cout << "*** PhoneBook is empty ***" << std::endl;
+	//int		choice;
+	std::cout << "nbr de contact initial " << Contact::get_nbr_contact() << std::endl;
+	Contact c1( 1 );
+	std::cout << "nbr de contact " << Contact::get_nbr_contact() << std::endl;
+	Contact c2( 2 );
+	std::cout << "nbr de contact " << Contact::get_nbr_contact() << std::endl;
+	/*Contact		mon_contact(2);
+	std::cout << "nbr de contact " << Contact::get_nbr_contact() << std::endl;
+	mon_contact.ft_print();
+	std::cout << "nbr de contact " << Contact::get_nbr_contact() << std::endl;*/
+	/*std::cout << "*** PhoneBook is empty ***" << std::endl;
 	choice = ft_print_menu();
 	switch (choice)
 	{
@@ -53,6 +61,10 @@ int main(void)
 		return (0);
 	default:
 		break;
-	}
+	}*/
+	c1.~Contact();
+	std::cout << "nbr de contact " << Contact::get_nbr_contact() << std::endl;
+	c2.~Contact();
+	std::cout << "nbr de contact " << Contact::get_nbr_contact() << std::endl;
 	return (0);
 }

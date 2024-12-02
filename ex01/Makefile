@@ -6,7 +6,7 @@
 #    By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 09:35:29 by nfordoxc          #+#    #+#              #
-#    Updated: 2024/11/21 09:53:44 by nfordoxc         ###   Luxembourg.lu      #
+#    Updated: 2024/12/02 09:48:21 by nfordoxc         ###   Luxembourg.lu      #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 ################################################################################
 
 CC				=	c++
-CFLAGS			=	-Wall -Werror -Wextra -g
+CFLAGS			=	-Wall -Werror -Wextra -Wpedantic -g
 CC_OPT			=	-std=c++98
 CC_DEF			=	
 
@@ -62,7 +62,8 @@ MYLIBS_BONUS	=
 #	Mandatory part															   #
 ################################################################################
 
-SRC				=	phonebook.cpp
+SRC				=	Contact.cpp \
+					main.cpp
 
 OBJ				=	$(SRC:.c=.o)
 
