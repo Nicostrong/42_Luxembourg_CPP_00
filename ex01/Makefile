@@ -6,7 +6,7 @@
 #    By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 09:35:29 by nfordoxc          #+#    #+#              #
-#    Updated: 2024/12/02 09:48:21 by nfordoxc         ###   Luxembourg.lu      #
+#    Updated: 2024/12/03 11:24:59 by nfordoxc         ###   Luxembourg.lu      #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,6 +63,7 @@ MYLIBS_BONUS	=
 ################################################################################
 
 SRC				=	Contact.cpp \
+					PhoneBook.cpp \
 					main.cpp
 
 OBJ				=	$(SRC:.c=.o)
@@ -183,12 +184,12 @@ define delete_progress
 		printf " %d/100 ]$(RESET)" $$i; \
 		sleep $(SLEEP_TIME); \
 	done
-	@printf "\r\033[K\033[0K$(GREEN)All files $(1) of $(NAME) deleted$(RESET)\n"
+	@printf "\r\033[K\033[0K$(BLUE)All files $(1) of $(NAME) deleted$(RESET)\n"
 endef
 
 define delete_file
 	@$(RM) $(1) > /dev/null 2>&1
-	@printf "\r\033[K\033[0K$(GREEN)$(1) deleted$(RESET)\n"
+	@printf "\r\033[K\033[0K$(BLUE)$(1) deleted$(RESET)\n"
 endef
 
 ################################################################################
