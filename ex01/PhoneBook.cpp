@@ -6,12 +6,13 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 13:17:08 by nfordoxc          #+#    #+#             */
-/*   Updated: 2024/12/03 16:57:49 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2024/12/06 08:28:29 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
+#include <stdlib.h>
 #include "PhoneBook_Class.hpp"
 #include "Contact_class.hpp"
 
@@ -22,7 +23,7 @@ PhoneBook::PhoneBook( void )
 	if (PhoneBook::_nbr_contact == 0)
 		std::cout << BLUE << "*** PhoneBook is empty ***" << RESET << std::endl;
 	for(int i = 0; i < 8; i++)
-		PhoneBook::contacts[i] = nullptr;
+		PhoneBook::contacts[i] = NULL;
 }
 
 PhoneBook::~PhoneBook( void )
@@ -88,7 +89,7 @@ void	PhoneBook::removeContact(int index )
 		delete PhoneBook::contacts[index];
 		for (int i = index; i < PhoneBook::_nbr_contact - 1; i++)
 			PhoneBook::contacts[i] = PhoneBook::contacts[i + 1];
-		PhoneBook::contacts[PhoneBook::_nbr_contact - 1] = nullptr;
+		PhoneBook::contacts[PhoneBook::_nbr_contact - 1] = NULL;
 		PhoneBook::_nbr_contact--;
 	}
 	else
@@ -111,7 +112,7 @@ void	PhoneBook::searchContact( void ) const
 		std::cin >> buff;
 		try
 		{
-			index = std::stoi(buff);
+			index = atoi(buff.c_str());
 			if (index < 0 || index > PhoneBook::_nbr_contact)
 			{
 				std::cout 	<< "Invalid index. Please enter a number between 0 and "
@@ -124,7 +125,7 @@ void	PhoneBook::searchContact( void ) const
 			index = -1;
 		}
 		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cin.ignore();
 	} while (index <= 0 || index > PhoneBook::_nbr_contact);
 	contacts[index - 1]->printContact();
 }
