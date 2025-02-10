@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 08:31:49 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/02/10 14:35:34 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/10 11:08:45 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ int main(void)
 		switch (choice)
 		{
 			case 1:
-				//repertoire.addContact();
+				repertoire.addContact();
 				break;
 			case 2:
-				//repertoire.printPhoneBook();
-				//repertoire.searchContact();
+				repertoire.printPhoneBook();
+				repertoire.searchContact();
 				break;
 			case 3:
 				return (0);

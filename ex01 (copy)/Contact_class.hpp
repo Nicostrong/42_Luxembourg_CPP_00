@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 09:06:51 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/02/10 14:55:31 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/10 10:29:12 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,27 @@ class Contact
 {
 	private:
 
-		int					_index;
-		const std::string	_first_name;
-		const std::string	_last_name;
-		const std::string	_nickname;
-		const std::string	_phone_number;
-		const std::string	_darkest_secret;
+		std::string		_index;
+		std::string		_first_name;
+		std::string		_last_name;
+		std::string		_nickname;
+		std::string		_phone_number;
+		std::string		_darkest_secret;
 
+		int				checkFormatPhoneNumber( std::string str );
+
+		std::string		getInput( void );
+		std::string		getNumber( void );
+		std::string		formatOutput(std::string str, size_t s);
+	
 	public:
 
-		Contact(int index, \
-				std::string f_name, \
-				std::string l_name, \
-				std::string n_name, \
-				std::string phone, \
-				std::string secret);
 		Contact();
 		~Contact();
+		
+		void 				createContact( int index );
+		void				printContact( void ) const;
+		void				printContactList( int index );
 };
 
 #endif

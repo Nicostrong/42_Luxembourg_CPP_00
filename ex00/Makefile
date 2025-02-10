@@ -6,7 +6,7 @@
 #    By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 09:35:29 by nfordoxc          #+#    #+#              #
-#    Updated: 2024/11/21 08:59:21 by nfordoxc         ###   Luxembourg.lu      #
+#    Updated: 2025/02/10 11:59:15 by nfordoxc         ###   Luxembourg.lu      #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,10 @@
 #	Makefile variables														   #
 ################################################################################
 
-CC				=	c++
-CFLAGS			=	-Wall -Werror -Wextra -g
-CC_OPT			=	-std=c++98
-CC_DEF			=	
+CXX				=	c++
+CXXFLAGS		=	-Wall -Werror -Wextra -g
+CXX_OPT			=	-std=c++98
+CXX_DEF			=	
 
 DEB				=	valgrind
 DEB_OPT			=	--tool=memcheck \
@@ -64,7 +64,7 @@ MYLIBS_BONUS	=
 
 SRC				=	megaphone.cpp
 
-OBJ				=	$(SRC:.c=.o)
+OBJ				=	$(SRC:.cpp=.o)
 
 NAME			=	megaphone
 
@@ -74,7 +74,7 @@ NAME			=	megaphone
 
 SRC_BONUS		=	
 
-OBJ_BONUS		=	$(SRC_BONUS:.c=.o)
+OBJ_BONUS		=	$(SRC_BONUS:.cpp=.o)
 
 NAME_BONUS		=	
 
@@ -85,8 +85,8 @@ NAME_BONUS		=
 SRC_TESTER		=	
 BONUS_TESTER	=	
 
-OBJ_TESTER		=	$(SRC_TESTER:.c=.o)
-OBJ_BONUS_TESTER=	$(BONUS_TESTER:.c=.o)
+OBJ_TESTER		=	$(SRC_TESTER:.cpp=.o)
+OBJ_BONUS_TESTER=	$(BONUS_TESTER:.cpp=.o)
 
 TESTER			=	
 TESTER_BONUS	=	
@@ -119,6 +119,17 @@ BPURPLE			=	'\033[1;95m'
 BCYAN			=	'\033[1;96m'
 BWHITE			=	'\033[1;97m'
 
+# Blink
+
+CBLACK			=	'\033[5;30m'
+CRED			=	'\033[5;31m'
+CGREEN			=	'\033[5;32m'
+CYELLOW			=	'\033[5;93m'
+CBLUE			=	'\033[5;34m'
+CPURPLE			=	'\033[5;35m'
+CCYAN			=	'\033[5;36m'
+CWHITE			=	'\033[5;97m'
+
 ################################################################################
 #	Progress bar															   #
 ################################################################################
@@ -136,7 +147,7 @@ SLEEP_TIME		=	0.001
 
 define compile_c_to_o
 	@$(eval CURRENT_FILE=$(shell echo $$(($(CURRENT_FILE)+1))))
-	@$(CC) $(CFLAGS) -c -o $@ $<
+	$(CXX) $(CXXFLAGS) $(CXX_OPT) -c -o $@ $<
 	@printf $(BLUE)"\r\033[K\033[0KCompiling files => $< ["
 	@for i in $$(seq 0 $$(($(CURRENT_FILE)*100/$(NUM_FILES)))); do \
 		printf $(YELLOW)"="; \
@@ -200,9 +211,10 @@ all: 		$(NAME)
 
 $(NAME):	NUM_FILES=$(NB_SRC)
 $(NAME):	$(OBJ)
-	$(CC) $(CFLAGS) $(CC_OPT) $(CC_DEF) $(OBJ) $(MYLIBS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(CXX_OPT) $(CC_DEF) $(OBJ) $(MYLIBS) -o $(NAME)
+	@echo "$(CGREEN)The programm $(NAME) successfully compilled"
 
-%.o :		%.c
+%.o :		%.cpp
 	$(call compile_c_to_o)
 
 # optimize:		$(NAME)
@@ -210,10 +222,11 @@ $(NAME):	$(OBJ)
 
 bonus:		NUM_FILES=$(NB_BONUS)
 bonus:		$(OBJ_BONUS)
-	@$(CC) $(CFLAGS) $(CC_OPT) $(OBJ_BONUS) $(MYLIBS_BONUS) -o $(NAME_BONUS)
+	$(CXX) $(CXXFLAGS) $(CXX_OPT) $(OBJ_BONUS) $(MYLIBS_BONUS) -o $(NAME_BONUS)
+	@echo "$(CGREEN)The programm $(NAME_BONUS) successfully compilled"
 
 deb:		$(OBJ)
-	$(CC) $(CFLAGS) $(CC_OPT) $(OBJ) $(MYLIBS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(CXX_OPT) $(OBJ) $(MYLIBS) -o $(NAME)
 	@echo "$(BBLUE)==========	RUN DEBUG MODE	==========$(RESET)"
 ifeq ($(arg),ARG0)
 	$(DEB) $(DEB_OPT) ./$(NAME) $(ARG0)
