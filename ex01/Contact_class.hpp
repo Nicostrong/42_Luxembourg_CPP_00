@@ -6,43 +6,60 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 09:06:51 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/02/10 14:55:31 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/11 15:32:57 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_CLASS_HPP
 # define CONTACT_CLASS_HPP
 
-#define RESET	"\033[0m"
-#define BLACK	"\033[30m"
-#define RED		"\033[31m"
-#define GREEN	"\033[32m"
-#define YELLOW	"\033[33m"
-#define BLUE	"\033[34m"
-#define MAGENTA	"\033[35m"
+# include <iostream>
+# include <string>
  
 class Contact
 {
 	private:
 
-		int					_index;
-		const std::string	_first_name;
-		const std::string	_last_name;
-		const std::string	_nickname;
-		const std::string	_phone_number;
-		const std::string	_darkest_secret;
+		int				_index;
+		std::string		_first_name;
+		std::string		_last_name;
+		std::string		_nickname;
+		std::string		_phone_number;
+		std::string		_darkest_secret;
 
 	public:
 
-		Contact(int index, \
-				std::string f_name, \
-				std::string l_name, \
-				std::string n_name, \
-				std::string phone, \
-				std::string secret);
 		Contact();
+		Contact(int index, \
+				const std::string& f_name, \
+				const std::string& l_name, \
+				const std::string& n_name, \
+				const std::string& phone, \
+				const std::string& secret);
 		~Contact();
+
+		/*
+		 *	getter functions
+		 */
+
+		int				getIndex( void ) const;
+		std::string		getFirstName( void ) const;
+		std::string		getLastName( void ) const;
+		std::string		getNickname( void ) const;
+		std::string		getPhoneNumber( void ) const;
+		std::string		getDarkestSecret( void ) const;
+
+		/*
+		 *	setter functions
+		 */
+
+		void			setContact( int index, \
+									const std::string& f_name, \
+									const std::string& l_name, \
+									const std::string& n_name, \
+									const std::string& phone, \
+									const std::string& secret );
+
 };
 
 #endif
-

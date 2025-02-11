@@ -6,7 +6,7 @@
 #    By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 09:35:29 by nfordoxc          #+#    #+#              #
-#    Updated: 2025/02/10 12:03:00 by nfordoxc         ###   Luxembourg.lu      #
+#    Updated: 2025/02/11 14:50:31 by nfordoxc         ###   Luxembourg.lu      #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@
 CXX				=	c++
 CXXFLAGS		=	-Wall -Werror -Wextra -g
 CXX_OPT			=	-std=c++98
-CXX_DEF			=	
+CXX_DEF			=	-D DEBUG=1
 
 DEB				=	valgrind
 DEB_OPT			=	--tool=memcheck \
@@ -149,7 +149,7 @@ SLEEP_TIME		=	0.001
 
 define compile_c_to_o
 	@$(eval CURRENT_FILE=$(shell echo $$(($(CURRENT_FILE)+1))))
-	@$(CXX) $(CXXFLAGS) $(CXX_OPT) -c -o $@ $<
+	@$(CXX) $(CXXFLAGS) $(CXX_OPT) $(CXX_DEF) -c -o $@ $<
 	@printf $(BLUE)"\r\033[K\033[0KCompiling files => $< ["
 	@for i in $$(seq 0 $$(($(CURRENT_FILE)*100/$(NUM_FILES)))); do \
 		printf $(YELLOW)"="; \
@@ -213,7 +213,7 @@ all: 		$(NAME)
 
 $(NAME):	NUM_FILES=$(NB_SRC)
 $(NAME):	$(OBJ)
-	$(CXX) $(CXXFLAGS) $(CXX_OPT) $(CC_DEF) $(OBJ) $(MYLIBS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(CXX_OPT) $(CXX_DEF) $(OBJ) $(MYLIBS) -o $(NAME)
 	@echo "$(CGREEN)The programm $(NAME) successfully compilled"
 
 %.o :		%.cpp
@@ -224,7 +224,7 @@ $(NAME):	$(OBJ)
 
 bonus:		NUM_FILES=$(NB_BONUS)
 bonus:		$(OBJ_BONUS)
-	$(CXX) $(CXXFLAGS) $(CXX_OPT) $(OBJ_BONUS) $(MYLIBS_BONUS) -o $(NAME_BONUS)
+	$(CXX) $(CXXFLAGS) $(CXX_OPT) $(CXX_DEF) $(OBJ_BONUS) $(MYLIBS_BONUS) -o $(NAME_BONUS)
 	@echo "$(CGREEN)The programm $(NAME_BONUS) successfully compilled"
 
 #deb:		$(OBJ)

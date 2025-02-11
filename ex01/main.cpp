@@ -6,34 +6,50 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 08:31:49 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/02/10 14:35:34 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/11 15:30:32 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string.h>
 #include "PhoneBook_Class.hpp"
+
+/*
+ *	Print the menu of the PhoneBook
+ */
+void	printMenu( void )
+{
+	std::cout << YELLOW << "**************************" << RESET << std::endl;
+	std::cout << YELLOW << "Welcome to the PhoneBook" << RESET << std::endl;
+	std::cout << YELLOW << "**************************" << RESET << std::endl;
+	std::cout << YELLOW << "ADD : add a new contact" << RESET << std::endl;
+	std::cout << YELLOW << "SEARCH : search a contact" << RESET << std::endl;
+	std::cout << YELLOW << "EXIT : exit the program" << RESET << std::endl;
+	std::cout << YELLOW << "What do you want to do ?" << RESET << std::endl;
+}
 
 int main(void)
 {
-	PhoneBook	repertoire;
-	int			choice;
+	PhoneBook	my_phonebook;
+	std::string	commande;
 
-	choice = 0;
-	while (1)
+	while (true)
 	{
-		choice = repertoire.printMenu();
-		switch (choice)
+		printMenu();
+		std::getline(std::cin, commande);
+		if (commande == "ADD")
+			my_phonebook.addContact();
+		else if (commande == "SEARCH")
+			my_phonebook.searchContact();
+		else if (commande == "EXIT")
 		{
-			case 1:
-				//repertoire.addContact();
-				break;
-			case 2:
-				//repertoire.printPhoneBook();
-				//repertoire.searchContact();
-				break;
-			case 3:
-				return (0);
+			std::cout << YELLOW << "Goodbye" << RESET << std::endl;
+			return (0);
+		}
+		else
+			std::cout << RED << "Invalid command" << RESET << std::endl;
+		if (std::cin.eof())
+		{
+			std::cout << "Goodbye" << std::endl;
+			return (0);
 		}
 	}
 }
