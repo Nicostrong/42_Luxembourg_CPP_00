@@ -6,14 +6,14 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 08:31:49 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/02/12 10:46:34 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/12 15:17:53 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook_Class.hpp"
 
 /*
- *	Print the menu of the PhoneBook
+ *	Print the menu of the PhoneBook.
  */
 void	printMenu( void )
 {
@@ -26,6 +26,11 @@ void	printMenu( void )
 	std::cout << YELLOW << "What do you want to do ?" << RESET << std::endl;
 }
 
+/*
+ *	PhoneBook programm is a simulation of phone book of 8 contacts.
+ *	You can add a contact, search a contact and exit the program.
+ *	if you put CTRL + D you exit the programm.
+ */
 int main(void)
 {
 	PhoneBook	my_phonebook;

@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 09:24:00 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/02/12 10:38:11 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/12 15:16:05 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Contact::Contact(	int index, \
 	return ;
 }
 /*
- *	Constructor of the class Contact
+ *	Default constructor of the class Contact with default values
  */
 Contact::Contact( void ) :	_index(0), \
 							_first_name( "DOE" ), \
@@ -118,7 +118,7 @@ std::string	Contact::getDarkestSecret( void ) const
  */
 
 	/*
-	 *	Validation of name
+	 *	Validation of name it accept only alphabets, '-' and ' '
 	 */
 bool	isValidName( const std::string& name)
 {
@@ -131,7 +131,8 @@ bool	isValidName( const std::string& name)
 }
 
 	/*
-	 *	capitalize the input
+	 *	capitalize the input put the first letter in uppercase and the rest in 
+	 *	lowercase
 	 */
 std::string	capitalizeInput( const std::string & input )
 {
@@ -159,8 +160,10 @@ std::string	putToUpperCase( const std::string& input )
 	return (inUpperCase);
 }
 
-	 /*
+	/*
 	 *	setContact set the contact with the given parameters
+	 *	check if parameters are empty and put some parameters on the correct 
+	 *	format
 	 */
 void	Contact::setContact(	int index, \
 								const std::string& f_name, \

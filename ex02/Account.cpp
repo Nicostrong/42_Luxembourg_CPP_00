@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 11:20:11 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/02/12 12:09:03 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/12 15:26:09 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ Account::~Account( void )
 }
 
 /*
- *	Static methode
+ *	Static methode for static variables shared with all instance of Account
  */
 
 	/*
-	 *	get _nbAccounts
+	 *	getNbAccounts returns the number of accounts
 	 */
 int		Account::getNbAccounts( void )
 {
@@ -59,7 +59,7 @@ int		Account::getNbAccounts( void )
 }
 
 	/*
-	 *	get _totalAmount
+	 *	getTotalAmount returns the total amount of all accounts
 	 */
 int		Account::getTotalAmount( void )
 {
@@ -67,7 +67,7 @@ int		Account::getTotalAmount( void )
 }
 
 	/*
-	 *	get _totalNbDeposits
+	 *	getNbDeposits returns the total number of deposits
 	 */
 int		Account::getNbDeposits( void )
 {
@@ -75,7 +75,7 @@ int		Account::getNbDeposits( void )
 }
 
 	/*
-	 *	get _totalNbWithdrawals
+	 *	getNbWithdrawals returns the total number of withdrawals
 	 */
 int		Account::getNbWithdrawals( void )
 {
@@ -83,7 +83,7 @@ int		Account::getNbWithdrawals( void )
 }
 
 	/*
-	 *	display all accounts informations
+	 *	display all informations of all accounts
 	 */
 void	Account::displayAccountsInfos( void )
 {
@@ -96,7 +96,7 @@ void	Account::displayAccountsInfos( void )
 }
 
 /*
- *	make deposit methode
+ *	makeDeposit add the deposit to the account
  */
 void	Account::makeDeposit( int deposit )
 {
@@ -114,7 +114,8 @@ void	Account::makeDeposit( int deposit )
 }
 
 /*
- *	make withdrawal methode
+ *	makeWthdrawal soustract the withdrawal to the account if it's possible.
+ *	return true if the withdrawal is possible, false otherwise.
  */
 bool	Account::makeWithdrawal( int withdrawal )
 {
@@ -139,7 +140,7 @@ bool	Account::makeWithdrawal( int withdrawal )
 }
 
 /*
- *	check of amount methode
+ *	checkAmount check the amount of the account
  */
 int	Account::checkAmount( void ) const
 {
@@ -147,7 +148,7 @@ int	Account::checkAmount( void ) const
 }
 
 /*
- *	displey the status account methode
+ *	displeyStatus show the status of the account
  */
 void	Account::displayStatus( void ) const
 {
@@ -160,7 +161,7 @@ void	Account::displayStatus( void ) const
 }
 
 /*
- *	display the timestamp
+ *	displayTimestamp put the timestamp in the output in format [YYYYMMDD_HHMMSS]
  */
 void	Account::_displayTimestamp( void )
 {
