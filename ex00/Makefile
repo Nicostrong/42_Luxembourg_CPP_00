@@ -6,7 +6,7 @@
 #    By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 09:35:29 by nfordoxc          #+#    #+#              #
-#    Updated: 2025/02/10 11:59:15 by nfordoxc         ###   Luxembourg.lu      #
+#    Updated: 12/02/2025 15:55:06 by Nicostrong       ###   ########.lu        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -147,7 +147,7 @@ SLEEP_TIME		=	0.001
 
 define compile_c_to_o
 	@$(eval CURRENT_FILE=$(shell echo $$(($(CURRENT_FILE)+1))))
-	$(CXX) $(CXXFLAGS) $(CXX_OPT) -c -o $@ $<
+	@$(CXX) $(CXXFLAGS) $(CXX_OPT) -c -o $@ $<
 	@printf $(BLUE)"\r\033[K\033[0KCompiling files => $< ["
 	@for i in $$(seq 0 $$(($(CURRENT_FILE)*100/$(NUM_FILES)))); do \
 		printf $(YELLOW)"="; \
