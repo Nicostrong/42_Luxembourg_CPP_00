@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 08:31:49 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/02/11 15:30:32 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/12 10:46:34 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	printMenu( void )
 	std::cout << YELLOW << "**************************" << RESET << std::endl;
 	std::cout << YELLOW << "Welcome to the PhoneBook" << RESET << std::endl;
 	std::cout << YELLOW << "**************************" << RESET << std::endl;
-	std::cout << YELLOW << "ADD : add a new contact" << RESET << std::endl;
-	std::cout << YELLOW << "SEARCH : search a contact" << RESET << std::endl;
-	std::cout << YELLOW << "EXIT : exit the program" << RESET << std::endl;
+	std::cout << YELLOW << "ADD :\t\tadd a new contact" << RESET << std::endl;
+	std::cout << YELLOW << "SEARCH :\tsearch a contact" << RESET << std::endl;
+	std::cout << YELLOW << "EXIT :\t\texit the program" << RESET << std::endl;
 	std::cout << YELLOW << "What do you want to do ?" << RESET << std::endl;
 }
 

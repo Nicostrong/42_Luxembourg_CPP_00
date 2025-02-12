@@ -6,7 +6,7 @@
 #    By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 09:35:29 by nfordoxc          #+#    #+#              #
-#    Updated: 2025/02/11 14:50:31 by nfordoxc         ###   Luxembourg.lu      #
+#    Updated: 2025/02/12 10:45:17 by nfordoxc         ###   Luxembourg.lu      #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@
 CXX				=	c++
 CXXFLAGS		=	-Wall -Werror -Wextra -g
 CXX_OPT			=	-std=c++98
-CXX_DEF			=	-D DEBUG=1
+CXX_DEF			=	
 
 DEB				=	valgrind
 DEB_OPT			=	--tool=memcheck \

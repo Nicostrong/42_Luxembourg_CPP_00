@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 09:24:00 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/02/11 15:00:43 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/12 10:38:11 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,48 @@ std::string	Contact::getDarkestSecret( void ) const
  *	SETTER FUNCTION
  */
 
+	/*
+	 *	Validation of name
+	 */
+bool	isValidName( const std::string& name)
+{
+	for (size_t i = 0; i < name.length(); i++)
+	{
+		if (!std::isalpha(name[i]) && name[i] != '-' && name[i] != ' ')
+			return false;
+	}
+	return (!name.empty());
+}
+
+	/*
+	 *	capitalize the input
+	 */
+std::string	capitalizeInput( const std::string & input )
+{
+	std::string	capitalizedInput;
+
+	if (input.empty())
+		return ("");
+	capitalizedInput = input;
+	capitalizedInput[0] = std::toupper(capitalizedInput[0]);
+	for (size_t i = 1; i < capitalizedInput.length(); i++)
+		capitalizedInput[i] = std::tolower(capitalizedInput[i]);
+	return (capitalizedInput);
+}
+
+	/*
+	 *	put input in uppercase
+	 */
+std::string	putToUpperCase( const std::string& input )
+{
+	std::string	inUpperCase;
+
+	inUpperCase = input;
+	for (size_t i = 0; i < input.length(); i++)
+		inUpperCase[i] = std::toupper(inUpperCase[i]);
+	return (inUpperCase);
+}
+
 	 /*
 	 *	setContact set the contact with the given parameters
 	 */
@@ -134,9 +176,9 @@ void	Contact::setContact(	int index, \
 		return ;
 	}
 	this->_index = index;
-	this->_first_name = f_name;
-	this->_last_name = l_name;
-	this->_nickname = n_name;
+	this->_first_name = capitalizeInput(f_name);
+	this->_last_name = putToUpperCase(l_name);
+	this->_nickname = capitalizeInput(n_name);
 	this->_phone_number = phone;
 	this->_darkest_secret = secret;
 	return ;

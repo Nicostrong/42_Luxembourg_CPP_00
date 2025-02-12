@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 13:17:08 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/02/11 15:45:01 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/12 10:43:40 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,41 @@ PhoneBook::~PhoneBook( void )
 /*
  *	check if the input is only digit and no empty
  */
-bool	isNumber( const std::string& input)
+bool	isNumber( const std::string& input )
 {
-	for (size_t i = 0; i < input.length(), i++)
+	for (size_t i = 0; i < input.length(); i++)
 	{
 		if (!std::isdigit(input[i]))
 			return false;
 	}
-	return !input.empty();
+	return (!input.empty());
 }
 
+/*
+ *	ask while the input is not in correct format or empty
+ */
+
+std::string	getValidInput( const std::string& prompt, bool isPhone = false )
+{
+	std::string	input;
+
+	while (true)
+	{
+		std::cout << prompt;
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+		{
+			std::cout << RED << "Exit of the program" << RESET << std::endl;
+			exit(0);
+		}
+		if (input.empty())
+			std::cout << RED << "Error: Empty input" << RESET << std::endl;
+		else if (isPhone && !isNumber(input))
+			std::cout << RED << "Error: Phone number only digit" << RESET << std::endl;
+		else
+			return (input);
+	}
+}
 /*
  *	addContact add a new contact on the phonebooj
  */
@@ -62,24 +87,11 @@ void	PhoneBook::addContact( void )
 	std::string	secret;
 
 	std::cout << YELLOW << "ADD new contact" << RESET << std::endl;
-	std::cout << "First name: ";
-	std::getline(std::cin, f_name);
-	std::cout << "Last name: ";
-	std::getline(std::cin, l_name);
-	std::cout << "Nickname: ";
-	std::getline(std::cin, n_name);
-	std::cout << "Phone number: ";
-	std::getline(std::cin, phone);
-	std::cout << "Darkest secret: ";
-	std::getline(std::cin, secret);
-
-	if (f_name.empty() || l_name.empty() || n_name.empty() || phone.empty() || \
-		secret.empty())
-	{
-		std::cout << RED << "Error: Empty field" << RESET << std::endl;
-		return ;
-	}
-
+	f_name = getValidInput("First name: ");
+	l_name = getValidInput("Last name: ");
+	n_name = getValidInput("Nickname: ");
+	phone = getValidInput("Phone number: ", true);
+	secret = getValidInput("Darkest secret: ");
 	index = (_nbr_contact < _max_contact) ? _nbr_contact : _oldest_index;
 	_contacts[index].setContact(index, f_name, l_name, n_name, phone, secret);
 	if (_nbr_contact < _max_contact)
@@ -130,12 +142,15 @@ void	PhoneBook::displayContact( int index ) const
 		return ;
 	}
 	std::cout << BLUE;
-	std::cout << "Contact " << index << std::endl;
-	std::cout << "First name: " << _contacts[index].getFirstName() << std::endl;
-	std::cout << "Last name: " << _contacts[index].getLastName() << std::endl;
-	std::cout << "Nickname: " << _contacts[index].getNickname() << std::endl;
-	std::cout << "Phone number: " << _contacts[index].getPhoneNumber() << std::endl;
-	std::cout << "Darkest secret: " << _contacts[index].getDarkestSecret();
+	std::cout << "***********************************************" << std::endl;
+	std::cout << "\t\tContact " << index << std::endl;
+	std::cout << "***********************************************" << std::endl;
+	std::cout << "First name:\t\t" << _contacts[index].getFirstName() << std::endl;
+	std::cout << "Last name:\t\t" << _contacts[index].getLastName() << std::endl;
+	std::cout << "Nickname:\t\t" << _contacts[index].getNickname() << std::endl;
+	std::cout << "Phone number:\t\t" << _contacts[index].getPhoneNumber() << std::endl;
+	std::cout << "Darkest secret:\t\t" << _contacts[index].getDarkestSecret() << std::endl;
+	std::cout << "***********************************************" << std::endl;
 	std::cout << RESET << std::endl;
 	return ;
 }

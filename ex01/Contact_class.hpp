@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 09:06:51 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/02/11 15:32:57 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/12 10:38:11 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include <algorithm>
  
 class Contact
 {
