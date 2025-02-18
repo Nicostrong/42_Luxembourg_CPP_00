@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact_class.hpp                                  :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 09:06:51 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/02/12 15:12:16 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/18 09:36:42 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_CLASS_HPP
-# define CONTACT_CLASS_HPP
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 # include <iostream>
 # include <string>
@@ -29,14 +29,14 @@ class Contact
 
 	public:
 
-		Contact();
+		Contact( void );
 		Contact(int index, \
 				const std::string& f_name, \
 				const std::string& l_name, \
 				const std::string& n_name, \
 				const std::string& phone, \
 				const std::string& secret);
-		~Contact();
+		~Contact( void );
 
 		/*
 		 *	getter functions

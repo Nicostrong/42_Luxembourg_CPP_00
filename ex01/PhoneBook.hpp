@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook_Class.hpp                                :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 09:02:06 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/02/18 08:07:30 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/18 09:37:00 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_CLASS_HPP
-# define PHONEBOOK_CLASS_HPP
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
 # include <iostream>
 # include <iomanip>
@@ -20,7 +20,7 @@
 # include <cstdlib>
 # include <sstream>
 
-# include "Contact_class.hpp"
+# include "Contact.hpp"
 
 # define RESET		"\033[0m"
 # define BLACK		"\033[30m"
@@ -41,8 +41,8 @@ class PhoneBook
 
 	public:
 
-		PhoneBook();
-		~PhoneBook();
+		PhoneBook( void );
+		~PhoneBook( void );
 
 		void				addContact( void );
 		void				searchContact( void ) const;

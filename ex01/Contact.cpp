@@ -6,14 +6,14 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 09:24:00 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/02/12 15:16:05 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/18 09:35:45 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include <stdlib.h>
 #include <sstream>
-#include "Contact_class.hpp"
+#include "Contact.hpp"
 
 /*
  *	Constructor of the class Contact
