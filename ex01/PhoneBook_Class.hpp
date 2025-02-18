@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 09:02:06 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/02/11 15:45:01 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/18 08:07:30 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <iomanip>
 # include <string>
 # include <cctype>
+# include <cstdlib>
+# include <sstream>
 
 # include "Contact_class.hpp"
 

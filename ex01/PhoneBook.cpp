@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 13:17:08 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/02/12 10:43:40 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/18 08:09:32 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,11 +118,9 @@ void	PhoneBook::searchContact( void ) const
 	printContacts();
 	std::cout << "Enter the index of the contact you want to display: ";
 	std::getline(std::cin, input);
-	try
-	{
-		index = std::stoi(input);
-	}
-	catch (std::exception &e)
+	std::istringstream iss(input);
+    iss >> index;
+	if (iss.fail())
 	{
 		std::cout << RED << "Error: Invalid index" << RESET << std::endl;
 		return ;
