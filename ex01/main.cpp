@@ -6,11 +6,11 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 08:31:49 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/02/12 15:17:53 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/18 12:41:47 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook_Class.hpp"
+#include "PhoneBook.hpp"
 
 /*
  *	Print the menu of the PhoneBook.

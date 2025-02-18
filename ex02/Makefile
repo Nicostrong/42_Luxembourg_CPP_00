@@ -6,7 +6,7 @@
 #    By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 09:35:29 by nfordoxc          #+#    #+#              #
-#    Updated: 2025/02/12 11:20:00 by nfordoxc         ###   Luxembourg.lu      #
+#    Updated: 2025/02/18 12:40:46 by nfordoxc         ###   Luxembourg.lu      #
 #                                                                              #
 # **************************************************************************** #
 
@@ -206,7 +206,7 @@ endef
 #	Rules																	   #
 ################################################################################
 
-.PHONY : all $(NAME) optimize bonus deb deb_bonus tester tester_bonus clean fclean re cafe nico good
+.PHONY : all $(NAME)  deb clean fclean re
 
 all: 		$(NAME)
 
@@ -218,30 +218,9 @@ $(NAME):	$(OBJ)
 %.o :		%.cpp
 	$(call compile_c_to_o)
 
-# optimize:		$(NAME)
-#	$(call optimise_lib)
-
-bonus:		NUM_FILES=$(NB_BONUS)
-bonus:		$(OBJ_BONUS)
-	$(CXX) $(CXXFLAGS) $(CXX_OPT) $(CXX_DEF) $(OBJ_BONUS) $(MYLIBS_BONUS) -o $(NAME_BONUS)
-	@echo "$(CGREEN)The programm $(NAME_BONUS) successfully compilled"
-
-#deb:		$(OBJ)
-#	$(CC) $(CFLAGS) $(CC_OPT) $(OBJ) $(MYLIBS) -o $(NAME)
-#	@echo "$(BBLUE)==========	RUN DEBUG MODE	==========$(RESET)"
-#ifeq ($(arg),ARG0)
-#	$(DEB) $(DEB_OPT) ./$(NAME) $(ARG0)
-#else ifeq ($(arg),ARG1)
-#	$(DEB) $(DEB_OPT) ./$(NAME) $(ARG1)
-#else ifeq ($(arg),ARG2)
-#	$(DEB) $(DEB_OPT) ./$(NAME) $(ARG2)
-#else ifeq ($(arg),ARG3)
-#	$(DEB) $(DEB_OPT) ./$(NAME) $(ARG3)
-#else ifeq ($(arg),ARG4)
-#	$(DEB) $(DEB_OPT) ./$(NAME) $(ARG4)
-#else
-#	@echo "$(RESET)Usage: make deb arg=ARG0|ARG1|ARG2|ARG3|ARG4"
-#endif
+deb:		$(NAME)
+	@echo "$(BBLUE)==========	RUN DEBUG MODE	==========$(RESET)"
+	$(DEB) $(DEB_OPT) ./$(NAME) $(ARG0)
 
 clean:
 	$(call delete_progress, *.o)
