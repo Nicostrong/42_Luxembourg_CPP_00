@@ -6,7 +6,7 @@
 #    By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 09:35:29 by nfordoxc          #+#    #+#              #
-#    Updated: 2025/02/18 12:40:10 by nfordoxc         ###   Luxembourg.lu      #
+#    Updated: 2025/02/20 09:56:05 by nfordoxc         ###   Luxembourg.lu      #
 #                                                                              #
 # **************************************************************************** #
 
@@ -221,7 +221,7 @@ $(NAME):	$(OBJ)
 
 deb:		$(NAME)
 	@echo "$(BBLUE)==========	RUN DEBUG MODE	==========$(RESET)"
-	$(DEB) $(DEB_OPT) ./$(NAME) $(ARG0)
+	$(DEB) $(DEB_OPT) ./$(NAME)
 
 clean:
 	$(call delete_progress, *.o)

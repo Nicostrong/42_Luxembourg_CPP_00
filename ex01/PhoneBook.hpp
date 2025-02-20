@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 09:02:06 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/02/18 09:37:00 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/20 09:57:53 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,11 @@ class PhoneBook
 
 	public:
 
+		/*	Constructor / Destructor	*/
 		PhoneBook( void );
 		~PhoneBook( void );
 
+		/*	Method	*/
 		void				addContact( void );
 		void				searchContact( void ) const;
 		void				displayContact( int index ) const;

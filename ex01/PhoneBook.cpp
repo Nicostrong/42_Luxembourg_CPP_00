@@ -6,13 +6,17 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 13:17:08 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/02/18 09:35:59 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/20 09:57:32 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
 int	PhoneBook::_nbr_contact = 0;
+
+/*******************************************************************************
+ *						CONSTRUCTOR / DESTRUCTOR							   *
+ ******************************************************************************/
 
 /*
  *	Constructor PhoneBook
@@ -36,10 +40,14 @@ PhoneBook::~PhoneBook( void )
 	return ;
 }
 
+/*******************************************************************************
+ *								METHOD 										   *
+ ******************************************************************************/
+
 /*
  *	check if the input is only digit and no empty
  */
-bool	isNumber( const std::string& input )
+bool		isNumber( const std::string& input )
 {
 	for (size_t i = 0; i < input.length(); i++)
 	{
@@ -63,7 +71,7 @@ std::string	getValidInput( const std::string& prompt, bool isPhone = false )
 		std::getline(std::cin, input);
 		if (std::cin.eof())
 		{
-			std::cout << RED << "Exit of the program" << RESET << std::endl;
+			std::cout << RED << "Exit of the program." << RESET << std::endl;
 			exit(0);
 		}
 		if (input.empty())
@@ -77,7 +85,7 @@ std::string	getValidInput( const std::string& prompt, bool isPhone = false )
 /*
  *	addContact add a new contact on the phonebooj
  */
-void	PhoneBook::addContact( void )
+void		PhoneBook::addContact( void )
 {
 	int			index;
 	std::string	f_name;
@@ -105,7 +113,7 @@ void	PhoneBook::addContact( void )
 /*
  *	searchContact search a contact on the phonebook
  */
-void	PhoneBook::searchContact( void ) const
+void		PhoneBook::searchContact( void ) const
 {
 	std::string	input;
 	int			index;
@@ -132,7 +140,7 @@ void	PhoneBook::searchContact( void ) const
 /*
  *	displayContact display a contact on the phonebook
  */
-void	PhoneBook::displayContact( int index ) const
+void		PhoneBook::displayContact( int index ) const
 {
 	if (index < 0 || index >= _nbr_contact)
 	{
@@ -156,7 +164,7 @@ void	PhoneBook::displayContact( int index ) const
 /*
  *	printContacts print all the contacts on the phonebook
  */
-void	PhoneBook::printContacts( void ) const
+void		PhoneBook::printContacts( void ) const
 {
 	std::cout	<< std::setw(10) << "index" << "|"
 				<< std::setw(10) << "First Name" << "|"

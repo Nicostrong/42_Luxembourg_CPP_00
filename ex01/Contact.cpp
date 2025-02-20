@@ -6,14 +6,17 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 09:24:00 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/02/18 09:35:45 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/20 09:55:44 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <stdlib.h>
 #include <sstream>
 #include "Contact.hpp"
+
+/*******************************************************************************
+ *						CONSTRUCTOR / DESTRUCTOR							   *
+ ******************************************************************************/
 
 /*
  *	Constructor of the class Contact
@@ -61,29 +64,29 @@ Contact::~Contact( void )
 	return ;
 }
 
-/*
-*	GETTER FUNCTONS
-*/
+/*******************************************************************************
+ *								GETTER										   *
+ ******************************************************************************/
 
-	/*
-	*	getIndex returns the index of the contact
-	*/
-int		Contact::getIndex( void ) const
+/*
+ *	getIndex returns the index of the contact
+ */
+int			Contact::getIndex( void ) const
 {
 	return (this->_index);
 }
 
-	/*
-	*	getFirstName returns the first name of the contact
-	*/
+/*
+ *	getFirstName returns the first name of the contact
+ */
 std::string	Contact::getFirstName( void ) const
 {
 	return (this->_first_name);
 }
 
-	/*
-	 *	getLastName returns the last name of the contact
-	 */
+/*
+ *	getLastName returns the last name of the contact
+ */
 std::string	Contact::getLastName( void ) const
 {
 	return (this->_last_name);
@@ -113,14 +116,14 @@ std::string	Contact::getDarkestSecret( void ) const
 	return (this->_darkest_secret);
 }
 
-/*
- *	SETTER FUNCTION
- */
+/*******************************************************************************
+ *								METHOD 										   *
+ ******************************************************************************/
 
-	/*
-	 *	Validation of name it accept only alphabets, '-' and ' '
-	 */
-bool	isValidName( const std::string& name)
+/*
+ *	Validation of name it accept only alphabets, '-' and ' '
+ */
+bool		isValidName( const std::string& name)
 {
 	for (size_t i = 0; i < name.length(); i++)
 	{
@@ -130,10 +133,10 @@ bool	isValidName( const std::string& name)
 	return (!name.empty());
 }
 
-	/*
-	 *	capitalize the input put the first letter in uppercase and the rest in 
-	 *	lowercase
-	 */
+/*
+ *	capitalize the input put the first letter in uppercase and the rest in 
+ *	lowercase
+ */
 std::string	capitalizeInput( const std::string & input )
 {
 	std::string	capitalizedInput;
@@ -147,9 +150,9 @@ std::string	capitalizeInput( const std::string & input )
 	return (capitalizedInput);
 }
 
-	/*
-	 *	put input in uppercase
-	 */
+/*
+ *	put input in uppercase
+ */
 std::string	putToUpperCase( const std::string& input )
 {
 	std::string	inUpperCase;
@@ -160,12 +163,12 @@ std::string	putToUpperCase( const std::string& input )
 	return (inUpperCase);
 }
 
-	/*
-	 *	setContact set the contact with the given parameters
-	 *	check if parameters are empty and put some parameters on the correct 
-	 *	format
-	 */
-void	Contact::setContact(	int index, \
+/*
+ *	setContact set the contact with the given parameters
+ *	check if parameters are empty and put some parameters on the correct 
+ *	format
+ */
+void		Contact::setContact(	int index, \
 								const std::string& f_name, \
 								const std::string& l_name, \
 								const std::string& n_name, \

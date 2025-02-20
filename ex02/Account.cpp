@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 11:20:11 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/02/12 15:26:09 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/20 09:59:36 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
 int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
+
+/*******************************************************************************
+ *						CONSTRUCTOR / DESTRUCTOR							   *
+ ******************************************************************************/
+
 
 /*
  *	Constructor
@@ -46,45 +51,49 @@ Account::~Account( void )
 	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";closed" << std::endl;
 }
 
-/*
- *	Static methode for static variables shared with all instance of Account
- */
+/*******************************************************************************
+ *								GETTER										   *
+ ******************************************************************************/
 
-	/*
-	 *	getNbAccounts returns the number of accounts
-	 */
+/*
+ *	getNbAccounts returns the number of accounts
+ */
 int		Account::getNbAccounts( void )
 {
 	return (_nbAccounts);
 }
 
-	/*
-	 *	getTotalAmount returns the total amount of all accounts
-	 */
+/*
+ *	getTotalAmount returns the total amount of all accounts
+ */
 int		Account::getTotalAmount( void )
 {
 	return (_totalAmount);
 }
 
-	/*
-	 *	getNbDeposits returns the total number of deposits
-	 */
+/*
+ *	getNbDeposits returns the total number of deposits
+ */
 int		Account::getNbDeposits( void )
 {
 	return (_totalNbDeposits);
 }
 
-	/*
-	 *	getNbWithdrawals returns the total number of withdrawals
-	 */
+/*
+ *	getNbWithdrawals returns the total number of withdrawals
+ */
 int		Account::getNbWithdrawals( void )
 {
 	return (_totalNbWithdrawals);
 }
 
-	/*
-	 *	display all informations of all accounts
-	 */
+/*******************************************************************************
+ *								METHOD 										   *
+ ******************************************************************************/
+
+/*
+ *	display all informations of all accounts
+ */
 void	Account::displayAccountsInfos( void )
 {
 	_displayTimestamp();
@@ -142,7 +151,7 @@ bool	Account::makeWithdrawal( int withdrawal )
 /*
  *	checkAmount check the amount of the account
  */
-int	Account::checkAmount( void ) const
+int		Account::checkAmount( void ) const
 {
 	return (_amount);
 }

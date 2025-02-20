@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 09:06:51 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/02/18 09:36:42 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/02/20 09:55:49 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class Contact
 
 	public:
 
+		/*	Constructor / Destructor	*/
 		Contact( void );
 		Contact(int index, \
 				const std::string& f_name, \
@@ -38,10 +39,7 @@ class Contact
 				const std::string& secret);
 		~Contact( void );
 
-		/*
-		 *	getter functions
-		 */
-
+		/*	Getter	*/
 		int				getIndex( void ) const;
 		std::string		getFirstName( void ) const;
 		std::string		getLastName( void ) const;
@@ -49,10 +47,7 @@ class Contact
 		std::string		getPhoneNumber( void ) const;
 		std::string		getDarkestSecret( void ) const;
 
-		/*
-		 *	setter functions
-		 */
-
+		/*	Method	*/
 		void			setContact( int index, \
 									const std::string& f_name, \
 									const std::string& l_name, \
