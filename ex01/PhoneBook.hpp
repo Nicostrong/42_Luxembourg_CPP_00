@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 09:02:06 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/02/20 09:57:53 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/03/03 13:59:07 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@ class PhoneBook
 		static const int	_max_contact = 8;
 		Contact				_contacts[_max_contact];
 		int					_oldest_index;
+
+		/*	private method	*/
+		bool				isValidInput( const std::string& input );
+		bool				isNumber( const std::string& input );
 
 	public:
 

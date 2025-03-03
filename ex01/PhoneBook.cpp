@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 13:17:08 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/02/20 09:57:32 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/03/03 13:58:06 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,19 @@ bool		isNumber( const std::string& input )
 }
 
 /*
+ *	check if the input is valid input char
+ */
+bool		isValidInput( const std::string& input )
+{
+	for (size_t i = 0; i < input.length(); i++)
+	{
+		if (!(std::isalnum(input[i]) || std::isspace(input[i])))
+			return false;
+	}
+	return (!input.empty());
+}
+
+/*
  *	ask while the input is not in correct format or empty
  */
 
@@ -76,6 +89,8 @@ std::string	getValidInput( const std::string& prompt, bool isPhone = false )
 		}
 		if (input.empty())
 			std::cout << RED << "Error: Empty input" << RESET << std::endl;
+		else if (!isPhone && !isValidInput(input))
+			std::cout << RED << "Error: only alnum and space." << RESET << std::endl;
 		else if (isPhone && !isNumber(input))
 			std::cout << RED << "Error: Phone number only digit" << RESET << std::endl;
 		else
