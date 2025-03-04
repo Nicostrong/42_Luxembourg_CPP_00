@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 09:02:06 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/03/03 13:59:07 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/03/04 07:31:59 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,10 @@ class PhoneBook
 		int					_oldest_index;
 
 		/*	private method	*/
-		bool				isValidInput( const std::string& input );
-		bool				isNumber( const std::string& input );
+		bool				hasChar( std::string &input);
+		bool				isNumber( const std::string	&input );
+		bool				isValidInput( const std::string	&input );
+		std::string			getValidInput( const std::string &prompt, bool isPhone );
 
 	public:
 

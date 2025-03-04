@@ -6,7 +6,7 @@
 #    By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 09:35:29 by nfordoxc          #+#    #+#              #
-#    Updated: 2025/02/20 09:56:05 by nfordoxc         ###   Luxembourg.lu      #
+#    Updated: 2025/03/04 07:23:50 by nfordoxc         ###   Luxembourg.lu      #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,7 @@ SRC				=	Contact.cpp \
 
 OBJ				=	$(SRC:.cpp=.o)
 
-NAME			=	phone_book
+NAME			=	Phone_book
 
 ################################################################################
 #	Bonus part																   #

@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 13:17:08 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/03/03 13:58:06 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/03/04 07:31:33 by nfordoxc         ###   Luxembourg.lu     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,18 @@ PhoneBook::~PhoneBook( void )
 }
 
 /*******************************************************************************
- *								METHOD 										   *
+ *							PRIVATE METHOD 									   *
  ******************************************************************************/
 
 /*
  *	check if the input is only digit and no empty
  */
-bool		isNumber( const std::string& input )
+bool		PhoneBook::isNumber( const std::string	&input )
 {
 	for (size_t i = 0; i < input.length(); i++)
 	{
 		if (!std::isdigit(input[i]))
-			return false;
+			return (false);
 	}
 	return (!input.empty());
 }
@@ -60,21 +60,34 @@ bool		isNumber( const std::string& input )
 /*
  *	check if the input is valid input char
  */
-bool		isValidInput( const std::string& input )
+bool		PhoneBook::isValidInput( const std::string	&input )
 {
 	for (size_t i = 0; i < input.length(); i++)
 	{
-		if (!(std::isalnum(input[i]) || std::isspace(input[i])))
-			return false;
+		if (!(std::isalnum(input[i]) || std::isspace(input[i]) || input[i] == '.'))
+			return (false);
 	}
 	return (!input.empty());
+}
+
+/*
+ *	check if input has at minimum a char
+ */
+bool		PhoneBook::hasChar( std::string &input)
+{
+	for (size_t i = 0; i < input.length(); i++)
+	{
+		if (std::isalpha(input[i]))
+			return (true);
+	}
+	return (false);
 }
 
 /*
  *	ask while the input is not in correct format or empty
  */
 
-std::string	getValidInput( const std::string& prompt, bool isPhone = false )
+std::string	PhoneBook::getValidInput( const std::string &prompt, bool isPhone = false )
 {
 	std::string	input;
 
@@ -91,12 +104,19 @@ std::string	getValidInput( const std::string& prompt, bool isPhone = false )
 			std::cout << RED << "Error: Empty input" << RESET << std::endl;
 		else if (!isPhone && !isValidInput(input))
 			std::cout << RED << "Error: only alnum and space." << RESET << std::endl;
+		else if (!isPhone && !hasChar(input))
+			std::cout << RED << "Error: need one char at least." << RESET << std::endl;
 		else if (isPhone && !isNumber(input))
 			std::cout << RED << "Error: Phone number only digit" << RESET << std::endl;
 		else
 			return (input);
 	}
 }
+
+/*******************************************************************************
+ *								METHOD 										   *
+ ******************************************************************************/
+
 /*
  *	addContact add a new contact on the phonebooj
  */
