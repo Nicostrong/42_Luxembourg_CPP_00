@@ -6,7 +6,7 @@
 /*   By: nfordoxc <nfordoxc@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 13:17:08 by nfordoxc          #+#    #+#             */
-/*   Updated: 2025/03/04 07:31:33 by nfordoxc         ###   Luxembourg.lu     */
+/*   Updated: 2025/03/07 11:07:09 by nfordoxc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ bool		PhoneBook::isValidInput( const std::string	&input )
 {
 	for (size_t i = 0; i < input.length(); i++)
 	{
-		if (!(std::isalnum(input[i]) || std::isspace(input[i]) || input[i] == '.'))
+		if (!(std::isalnum(input[i]) || std::isspace(input[i]) || input[i] == '-'))
 			return (false);
 	}
 	return (!input.empty());
@@ -98,7 +98,7 @@ std::string	PhoneBook::getValidInput( const std::string &prompt, bool isPhone = 
 		if (std::cin.eof())
 		{
 			std::cout << RED << "Exit of the program." << RESET << std::endl;
-			exit(0);
+			exit(1);
 		}
 		if (input.empty())
 			std::cout << RED << "Error: Empty input" << RESET << std::endl;
