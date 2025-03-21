@@ -42,11 +42,11 @@ Contact::Contact(	int index, \
  *	Default constructor of the class Contact with default values
  */
 Contact::Contact( void ) :	_index(0), \
-							_first_name( "DOE" ), \
-							_last_name( "JOHN" ), \
-							_nickname( "JOHN DOE" ), \
-							_phone_number( "+00/00.00.00.00.00"), \
-							_darkest_secret( "Unknown person" )
+							_first_name( "" ), \
+							_last_name( "" ), \
+							_nickname( "" ), \
+							_phone_number( ""), \
+							_darkest_secret( "" )
 {
 #ifdef DEBUG
 	std::cout << "Contact constructor with basic parameter called." << std::endl;

@@ -98,7 +98,7 @@ std::string	PhoneBook::getValidInput( const std::string &prompt, bool isPhone = 
 		if (std::cin.eof())
 		{
 			std::cout << RED << "Exit of the program." << RESET << std::endl;
-			exit(1);
+			exit(0);
 		}
 		if (input.empty())
 			std::cout << RED << "Error: Empty input" << RESET << std::endl;
