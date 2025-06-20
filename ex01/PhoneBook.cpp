@@ -98,7 +98,7 @@ std::string	PhoneBook::getValidInput( const std::string &prompt, bool isPhone = 
 		if (std::cin.eof())
 		{
 			std::cout << RED << "Exit of the program." << RESET << std::endl;
-			exit(0);
+			return ("");
 		}
 		if (input.empty())
 			std::cout << RED << "Error: Empty input" << RESET << std::endl;
@@ -131,10 +131,20 @@ void		PhoneBook::addContact( void )
 
 	std::cout << YELLOW << "ADD new contact" << RESET << std::endl;
 	f_name = getValidInput("First name: ");
+	if (f_name.empty())
+		return ;
 	l_name = getValidInput("Last name: ");
+	if (l_name.empty())
+		return ;
 	n_name = getValidInput("Nickname: ");
+	if (n_name.empty())
+		return ;
 	phone = getValidInput("Phone number: ", true);
+	if (phone.empty())
+		return ;
 	secret = getValidInput("Darkest secret: ");
+	if (secret.empty())
+		return ;
 	index = (_nbr_contact < _max_contact) ? _nbr_contact : _oldest_index;
 	_contacts[index].setContact(index, f_name, l_name, n_name, phone, secret);
 	if (_nbr_contact < _max_contact)
